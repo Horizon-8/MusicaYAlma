@@ -352,6 +352,20 @@ h3 {
 .artist-card.highlight { background: linear-gradient(135deg, rgba(198, 154, 69, 0.22), rgba(14, 18, 41, 0.92)); }
 .artist-card p { color: var(--ink-soft); margin-top: 0.4rem; }
 
+.artist-photo {
+  margin: 0.9rem 0 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #050713;
+}
+
+.artist-photo img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
 .people-section, .bio-panel { margin-top: 1rem; padding: clamp(1rem, 3vw, 1.5rem); }
 .people-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.65rem 1rem; }
 .people-list li {
