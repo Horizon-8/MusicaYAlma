@@ -64,6 +64,7 @@ p { margin: 0; }
   display: inline-flex;
   align-items: center;
   gap: 0.8rem;
+  min-width: 0;
   color: var(--gold-light);
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: clamp(1.15rem, 3vw, 1.45rem);
@@ -71,6 +72,11 @@ p { margin: 0; }
   letter-spacing: 0;
   text-decoration: none;
   white-space: nowrap;
+}
+
+.brand span:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .brand-mark {
@@ -111,12 +117,15 @@ p { margin: 0; }
 .menu-toggle {
   display: none;
   align-items: center;
+  justify-content: center;
   gap: 0.45rem;
   min-height: 42px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  color: var(--ink);
-  background: transparent;
+  color: var(--night);
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
   font: inherit;
   font-size: 0.9rem;
   font-weight: 700;
@@ -487,7 +496,15 @@ h3 {
 
 @media (max-width: 900px) {
   .menu-toggle { display: inline-flex; }
-  .site-header { flex-wrap: wrap; }
+  .site-header {
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .brand {
+    flex: 1 1 auto;
+    max-width: calc(100% - 98px);
+  }
   .site-nav { display: none; flex: 1 0 100%; overflow-x: auto; padding-top: 0.35rem; }
   .site-nav.is-open { display: flex; }
   .site-nav a { white-space: nowrap; }
@@ -498,7 +515,13 @@ h3 {
 
 @media (max-width: 640px) {
   main { width: min(100% - 1rem, var(--max-width)); padding-top: 1rem; }
-  .brand span:last-child { max-width: 13ch; line-height: 1; }
+  .brand {
+    white-space: normal;
+  }
+  .brand span:last-child {
+    max-width: 15rem;
+    line-height: 1;
+  }
   h1 { max-width: 9ch; font-size: clamp(3.2rem, 18vw, 4.4rem); }
   .event-facts, .people-list { grid-template-columns: 1fr; }
   .program-block { grid-template-columns: 1fr; }
