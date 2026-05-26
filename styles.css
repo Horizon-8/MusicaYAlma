@@ -359,6 +359,20 @@ h3 {
 .bio-panel { display: grid; grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.6fr); gap: 1.4rem; }
 .bio-text { display: grid; gap: 0.9rem; }
 
+.bio-photo {
+  margin: 1rem 0 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #050713;
+}
+
+.bio-photo img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
 .accordion { display: grid; gap: 0.7rem; }
 .accordion details { overflow: hidden; }
 .accordion summary {
