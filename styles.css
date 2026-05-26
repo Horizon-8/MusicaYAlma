@@ -210,6 +210,7 @@ h3 {
 .artist-card,
 .program-block,
 .notes-layout article,
+.program-notes,
 .bio-panel,
 .thanks-card,
 .accordion details,
@@ -266,7 +267,7 @@ h3 {
 .home-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 1.5rem; }
 .home-grid article { padding: clamp(1rem, 3vw, 1.4rem); }
 .home-grid h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 0.6rem; }
-.home-grid p, .notes-layout p, .bio-text, .thanks-card, .lyrics { color: var(--ink-soft); }
+.home-grid p, .notes-layout p, .program-notes, .bio-text, .thanks-card, .lyrics { color: var(--ink-soft); }
 
 .section-heading { max-width: 760px; margin-bottom: clamp(1.4rem, 4vw, 2rem); }
 .section-heading p:not(.small-caps) { margin-top: 0.75rem; color: var(--ink-soft); font-size: 1.05rem; }
@@ -327,6 +328,16 @@ h3 {
 .notes-layout p + p { margin-top: 0.85rem; }
 .note-feature { grid-column: 1 / -1; background: linear-gradient(135deg, rgba(198, 154, 69, 0.18), rgba(14, 18, 41, 0.86)); }
 
+.program-notes {
+  max-width: 860px;
+  padding: clamp(1.1rem, 4vw, 2rem);
+  font-size: clamp(1rem, 2.4vw, 1.08rem);
+}
+
+.program-notes p + p {
+  margin-top: 1rem;
+}
+
 .artist-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
 .artist-card { padding: 1.2rem; }
 .artist-card.highlight { background: linear-gradient(135deg, rgba(198, 154, 69, 0.22), rgba(14, 18, 41, 0.92)); }
@@ -381,6 +392,42 @@ h3 {
 .accordion small { margin-left: auto; }
 .lyrics { display: grid; gap: 0.85rem; padding: 0 1rem 1.15rem; }
 .lyrics.pending { color: var(--gold-light); font-weight: 700; }
+
+.lyrics-section {
+  display: grid;
+  gap: 0.65rem;
+  padding-top: 0.4rem;
+}
+
+.lyrics-section + .lyrics-section {
+  margin-top: 0.9rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(239, 207, 131, 0.18);
+}
+
+.lyrics-section h4 {
+  margin: 0;
+  color: var(--gold-light);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.original-text {
+  color: var(--ink);
+  font-style: italic;
+}
+
+.original-pending {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.translation-text {
+  display: grid;
+  gap: 0.85rem;
+}
 
 .thanks-card { max-width: 860px; padding: clamp(1.1rem, 4vw, 2rem); }
 .thanks-card p + p { margin-top: 1rem; }

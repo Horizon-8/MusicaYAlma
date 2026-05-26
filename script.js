@@ -4,6 +4,42 @@ const nav = document.querySelector("#site-nav");
 const menuToggle = document.querySelector(".menu-toggle");
 const topButton = document.querySelector(".top-button");
 
+function enhanceLyrics() {
+  document.querySelectorAll(".accordion details").forEach((details) => {
+    const lyrics = details.querySelector(".lyrics");
+    if (!lyrics || lyrics.classList.contains("is-enhanced") || lyrics.classList.contains("pending")) {
+      return;
+    }
+
+    const currentText = [...lyrics.children];
+    const isSpanishOriginal = details.classList.contains("spanish-work");
+    lyrics.classList.add("is-enhanced");
+    lyrics.textContent = "";
+
+    if (isSpanishOriginal) {
+      const originalSection = document.createElement("section");
+      originalSection.className = "lyrics-section";
+      originalSection.innerHTML = '<h4>Texto original</h4><div class="original-text"></div>';
+      const originalText = originalSection.querySelector(".original-text");
+      currentText.forEach((node) => originalText.appendChild(node));
+      lyrics.appendChild(originalSection);
+      return;
+    }
+
+    const originalSection = document.createElement("section");
+    originalSection.className = "lyrics-section";
+    originalSection.innerHTML = '<h4>Texto original</h4><p class="original-pending"><em>Texto original pendiente por confirmar.</em></p>';
+
+    const translationSection = document.createElement("section");
+    translationSection.className = "lyrics-section";
+    translationSection.innerHTML = '<h4>Traducción al español</h4><div class="translation-text"></div>';
+    const translationText = translationSection.querySelector(".translation-text");
+    currentText.forEach((node) => translationText.appendChild(node));
+
+    lyrics.append(originalSection, translationSection);
+  });
+}
+
 function setActiveView(viewName, shouldPush = true) {
   const target = views.find((view) => view.dataset.view === viewName) || views[0];
 
@@ -55,4 +91,5 @@ window.addEventListener("popstate", () => {
 });
 
 const initialView = window.location.hash.replace("#", "") || "inicio";
+enhanceLyrics();
 setActiveView(initialView, false);
