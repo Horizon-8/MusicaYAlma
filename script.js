@@ -26,17 +26,13 @@ function enhanceLyrics() {
       return;
     }
 
-    const originalSection = document.createElement("section");
-    originalSection.className = "lyrics-section";
-    originalSection.innerHTML = '<h4>Texto original</h4><p class="original-pending"><em>Texto original pendiente por confirmar.</em></p>';
-
     const translationSection = document.createElement("section");
     translationSection.className = "lyrics-section";
     translationSection.innerHTML = '<h4>Traducción al español</h4><div class="translation-text"></div>';
     const translationText = translationSection.querySelector(".translation-text");
     currentText.forEach((node) => translationText.appendChild(node));
 
-    lyrics.append(originalSection, translationSection);
+    lyrics.appendChild(translationSection);
   });
 }
 
